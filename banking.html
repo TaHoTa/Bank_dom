@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baap er bank</title>
+
+    <!-- tailwind -------- -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <header>
+        <h1 class="text-5xl mt-10 text-center">Welcome!!! <span class="font-bold text-orange-700"> Banking page</span>
+        </h1>
+    </header>
+    <main>
+        <section class="bg-orange-200 w-3/4 mx-auto my-10 p-8">
+            <h3 class="text-2xl mb-5">Banking page</h3>
+        </section>
+        <main class="w-3/4 mx-auto">
+            <section class="grid grid-cols-3 gap-4">
+                <div class="bg-red-100 p-8 rounded-5">
+                    <h3 class="text-xl">Deposit</h3>
+                    <h4 class="text-3xl">$ <span id="deposit_text"> 000</span></h4>
+                </div>
+                <div class="bg-orange-100 p-8 rounded-5">
+                    <h3 class="text-xl">Withdraw</h3>
+                    <h4 class="text-3xl">$ <span id="withdraw_text"> 000</span></h4>
+                </div>
+
+                <div class="bg-orange-200 p-8 rounded-5">
+                    <h3 class="text-xl">Balance</h3>
+                    <h4 class="text-3xl">$ <span id="balance_text"> 1000</span></h4>
+                </div>
+            </section>
+
+            <!-- input -------------  -->
+            <section class="bg-orange-200 w-3/4 mx-auto my-5 grid grid-cols-2">
+                <section class=" mx-auto my-10 p-8">
+                    <h3 class="text-2xl mb-5">input Deposit</h3>
+                    <div>
+                        <input id="deposit_input" class="border block border-orange-500 rounded p-2 my-3" type="number"
+                            placeholder="Your deposit">
+
+                        <button id="submit_deposit"
+                            class="bg-gradient-to-r from-orange-500 to-red-500 p-3 rounded text-white">Store
+                            deposit</button>
+                    </div>
+                </section>
+                <section class="my-10 p-8">
+                    <h3 class="text-2xl mb-5">input Withdraw amount</h3>
+                    <div>
+                        <input id="withdraw_input" class="border block border-orange-500 rounded p-2 my-3" type="number"
+                            placeholder="Withdraw amount">
+
+                        <button id="submit_withdraw"
+                            class="bg-gradient-to-r from-orange-500 to-red-500 p-3 rounded text-white">Withdraw
+                            amount</button>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </main>
+
+
+    <script src="banking.js"></script>
+</body>
+
+</html>
