@@ -7,7 +7,7 @@ function getInputValue(inpitId) {
     newInput.value = '';
     return newvalue;
 }
-
+// update text field (deposit + withdraw)
 function getTotalValue(inputText, value) {
     const Text = document.getElementById(inputText);
     const InnerText = Text.innerText;
@@ -16,40 +16,30 @@ function getTotalValue(inputText, value) {
     return Text.innerText;
 }
 
+function getBalance(Value) {
+    const balanceText = document.getElementById('balance_text');
+    const newTotalBalance = Value + parseFloat(balanceText.innerText);
+    balanceText.innerText = newTotalBalance;
+}
 
+// handle diposit ----------------
 document.getElementById('submit_deposit').addEventListener('click', function () {
-    // handle diposit ----------------
+
     const depositValue = getInputValue('deposit_input');
     const depositText = getTotalValue('deposit_text', depositValue);
 
-
-
     // handle balance -------------
+    getBalance(depositValue);
 
-    const balanceText = document.getElementById('balance_text');
-    const newTotalBalance = depositValue + parseFloat(balanceText.innerText);
-
-
-    balanceText.innerText = newTotalBalance;
 })
 
 // handle withdraw ----------------
 document.getElementById('submit_withdraw').addEventListener('click', function () {
 
-
     const withdrawValue = getInputValue('withdraw_input');
-
     const withdrawText = getTotalValue('withdraw_text', withdrawValue);
 
-
-
-
     // handle balance -------------
-
-    const balanceText = document.getElementById('balance_text');
-    const newTotalBalance = parseFloat(balanceText.innerText) - withdrawValue;
-
-
-    balanceText.innerText = newTotalBalance;
+    getBalance(withdrawValue * (-1));
 
 })
