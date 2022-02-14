@@ -1,18 +1,28 @@
-// handle diposit ----------------
+// input to float value function ---------
+function getInputValue(inpitId) {
+    const newInput = document.getElementById(inpitId);
+    const inputText = newInput.value;
+    const newvalue = parseFloat(inputText);
+
+    newInput.value = '';
+    return newvalue;
+}
+
+
 document.getElementById('submit_deposit').addEventListener('click', function () {
-    const newInputDeposit = document.getElementById('deposit_input');
-    const newDepositvalue = newInputDeposit.value;
+    // handle diposit ----------------
+    const depositValue = getInputValue('deposit_input');
+
     const depositText = document.getElementById('deposit_text');
     const depositInnerText = depositText.innerText;
-    const newTotalDeposit = parseFloat(newDepositvalue) + parseFloat(depositInnerText);
+    const newTotalDeposit = depositValue + parseFloat(depositInnerText);
 
     depositText.innerText = newTotalDeposit;
-    newInputDeposit.value = '';
 
     // handle balance -------------
 
     const balanceText = document.getElementById('balance_text');
-    const newTotalBalance = parseFloat(newDepositvalue) + parseFloat(balanceText.innerText);
+    const newTotalBalance = depositValue + parseFloat(balanceText.innerText);
 
 
     balanceText.innerText = newTotalBalance;
@@ -20,19 +30,20 @@ document.getElementById('submit_deposit').addEventListener('click', function () 
 
 // handle withdraw ----------------
 document.getElementById('submit_withdraw').addEventListener('click', function () {
-    const newInputWithdraw = document.getElementById('withdraw_input');
-    const newWithdrawValue = newInputWithdraw.value;
+
+
+    const withdrawValue = getInputValue('withdraw_input');
+
     const withdrawText = document.getElementById('withdraw_text');
     const withdrawInnerText = withdrawText.innerText;
-    const newTotalWithdraw = parseFloat(newWithdrawValue) + parseFloat(withdrawInnerText);
+    const newTotalWithdraw = withdrawValue + parseFloat(withdrawInnerText);
 
     withdrawText.innerText = newTotalWithdraw;
-    newInputWithdraw.value = '';
 
     // handle balance -------------
 
     const balanceText = document.getElementById('balance_text');
-    const newTotalBalance = parseFloat(balanceText.innerText) - parseFloat(newWithdrawValue);
+    const newTotalBalance = parseFloat(balanceText.innerText) - withdrawValue;
 
 
     balanceText.innerText = newTotalBalance;
