@@ -8,16 +8,21 @@ function getInputValue(inpitId) {
     return newvalue;
 }
 
+function getTotalValue(inputText, value) {
+    const Text = document.getElementById(inputText);
+    const InnerText = Text.innerText;
+    const newTotal = value + parseFloat(InnerText);
+    Text.innerText = newTotal;
+    return Text.innerText;
+}
+
 
 document.getElementById('submit_deposit').addEventListener('click', function () {
     // handle diposit ----------------
     const depositValue = getInputValue('deposit_input');
+    const depositText = getTotalValue('deposit_text', depositValue);
 
-    const depositText = document.getElementById('deposit_text');
-    const depositInnerText = depositText.innerText;
-    const newTotalDeposit = depositValue + parseFloat(depositInnerText);
 
-    depositText.innerText = newTotalDeposit;
 
     // handle balance -------------
 
@@ -34,11 +39,10 @@ document.getElementById('submit_withdraw').addEventListener('click', function ()
 
     const withdrawValue = getInputValue('withdraw_input');
 
-    const withdrawText = document.getElementById('withdraw_text');
-    const withdrawInnerText = withdrawText.innerText;
-    const newTotalWithdraw = withdrawValue + parseFloat(withdrawInnerText);
+    const withdrawText = getTotalValue('withdraw_text', withdrawValue);
 
-    withdrawText.innerText = newTotalWithdraw;
+
+
 
     // handle balance -------------
 
